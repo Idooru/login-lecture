@@ -8,7 +8,7 @@ const app = express();
 const home = require("./src/routes/home");
 
 // 앱 세팅
-app.set("views", "./src/views");
+app.set("views", "./app/src/views");
 app.set("view engine", "ejs");
 app.set("PORT", process.env.PORT || 3000);
 app.use(express.json());

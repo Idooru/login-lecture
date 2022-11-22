@@ -2,13 +2,13 @@
   "name": "login-lecture",
   "version": "1.0.0",
   "description": "",
-  "main": "./bin/www.js",
+  "main": "./app/bin/www.js",
   "bin": {
     "login-lecture": "www.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./bin/www.js"
+    "start": "nodemon ./app/bin/www.js"
   },
   "repository": {
     "type": "git",
