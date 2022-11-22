@@ -4,24 +4,23 @@ const id = document.querySelector("#id");
 const pw = document.querySelector("#pw");
 const loginBtn = document.querySelector("button");
 
-const login = () => {
+const login = async () => {
   const req = {
     id: id.value,
     pw: pw.value,
   };
 
-  fetch("/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(req),
-  })
-    .then((res) => res.json())
-    .then(console.log)
-    .catch((err) => {
-      console.error(err);
-    });
+  try {
+    const { data } = await axios.post("/login", req);
+    console.log(data);
+    if (data.success) {
+      location.href = "/";
+    } else {
+      alert(data.msg);
+    }
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 loginBtn.addEventListener("click", login);
