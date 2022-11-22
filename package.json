@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "./app/bin/www.js",
+  "type": "module",
   "bin": {
     "login-lecture": "www.js"
   },

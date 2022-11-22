@@ -12,11 +12,13 @@ const login = async () => {
 
   try {
     const { data } = await axios.post("/login", req);
-    console.log(data);
+
     if (data.success) {
       location.href = "/";
-    } else {
+    } else if (data.success === false) {
       alert(data.msg);
+    } else {
+      throw new Error("로그인 중 에러 발생");
     }
   } catch (err) {
     console.error(err);

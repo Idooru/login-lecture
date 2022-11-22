@@ -1,14 +1,13 @@
 "use strict";
 
 // 모듈
-const express = require("express");
-const router = express.Router();
+import express from "express";
+import * as ctrl from "./home.ctrl.js";
 
-// 컨트롤러 연결
-const ctrl = require("./home.ctrl");
+const router = express.Router();
 
 router.get("/", ctrl.output.home);
 router.get("/login", ctrl.output.login);
 router.post("/login", ctrl.process.login);
 
-module.exports = router;
+export default router;

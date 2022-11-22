@@ -1,11 +1,16 @@
 "use strict";
 
 // 모듈
-const express = require("express");
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// 초기화
 const app = express();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // 라우팅
-const home = require("./src/routes/home");
+import home from "./src/routes/home/index.js";
 
 // 앱 세팅
 app.set("views", "./app/src/views");
@@ -18,4 +23,4 @@ app.use(express.static(`${__dirname}/src/public`));
 // 라우팅 미들웨어 등록
 app.use("/", home); // use -> 미들 웨어를 등록해주는 메서드.
 
-module.exports = app;
+export { app };
