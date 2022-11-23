@@ -15,6 +15,22 @@ export class UserStorage {
       }
       return newUsers;
     }, {});
-    return this.#users;
+    return newUsers;
+  }
+
+  static getUserInfo(id) {
+    const users = this.#users;
+
+    if (!users.id.includes(id)) {
+      return `해당 아이디(${id}) 없음`;
+    }
+
+    const idx = users.id.indexOf(id);
+    const usersKeys = Object.keys(users);
+    const userInfo = usersKeys.reduce((newUser, info) => {
+      newUser[info] = users[info][idx];
+      return newUser;
+    }, {});
+    return userInfo;
   }
 }
